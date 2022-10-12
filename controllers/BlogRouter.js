@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/', async (req, res) => {
     try {
         const blogs = await BlogModel.find({})
-        res.send(blogs)
+        res.send('Blogs/blogs', {blogs: blogs})
     } catch (error) {
         console.log(error);
         res.status(403).send('Cannot get')
@@ -65,17 +65,3 @@ router.delete('/:id', async (req, res) => {
 module.exports = router;
 
 
-/*
-router.post('/', (req, res) => {
-    // Create a new blog
-    BlogModel.create(req.body)
-    .then(data => {
-        console.log(data);
-        res.send(data)
-    })
-    .catch(error => {
-        console.log(error);
-        res.status(403).send('Cannot create')
-        })
-    */
-       //POST: CREATE a New Blog
