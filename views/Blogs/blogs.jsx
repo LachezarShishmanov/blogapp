@@ -1,34 +1,34 @@
 const React = require('react')
+const NavBar = require('../components/Navbar')
 
-class Blogs extends React.component {
+
+class Blogs extends React.Component {
     render () {
-        return (<div>
-            <h1>Blogs</h1>
-        </div>)
-    }
-}
-
-
-const React = require('react')
-const fruits = require('../../models/fruits')
-
-class Show extends React.Component{
-    render(){
-        console.log(this.props)
-        // receive data from fruits.js
-        const fruit = this.props.fruit
-        const presentDate = this.props.date
-        return(
+        const{blogs}=this.props
+        return (
         <div>
-            <h1>Show Page!!!</h1>
-            <a href="/fruits">Home</a>
-            <h3>The fruit name is {fruit.name} and the color is {fruit.color}</h3>
+             <head>
+            <link rel="stylesheet" href="/CSS/app.css"/>
+            </head>
 
-            <h4>{fruit.readyToEat ? 'Its ready to eat' : 'It is not ready to eat... Cant touch this'}</h4> 
-            
-            <h6>Year:{presentDate}</h6>
+            <NavBar/>
+
+            <h1>Blogs</h1>
+
+            <ul>
+          {blogs.map((blog, idx) => (
+            <li>
+         <a href={`/blog/${blog._id}`}>{blog.title} </a><br />{blog.author} <br />{blog.body}
+              <br />
+<form action={`/blog/${blog._id}?_method=delete`} method='post' >
+                  <input type='submit' value='Delete'/>
+                </form>
+                <a href={`/blog/${blog._id}/edit`}>Edit</a>
+            </li>
+          ))}
+        </ul>
         </div>
-        )  
-        
-    }
+        )    
 }
+}
+module.exports = Blogs

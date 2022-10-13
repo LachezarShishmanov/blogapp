@@ -7,18 +7,23 @@ const router = express.Router()
 router.get('/', async (req, res) => {
     try {
         const blogs = await BlogModel.find({})
-        res.send('Blogs/blogs', {blogs: blogs})
+        res.render('Blogs/blogs', {blogs: blogs})
     } catch (error) {
         console.log(error);
         res.status(403).send('Cannot get')
     }
 })
 
+// ^ Render New Blog Form
+router.get('/new', (req, res) => {
+    res.render('Blogs/new')
+})
+
 // GET: Blog by ID
 router.get('/:id', async (req, res) => {
     try {
         const blog = await BlogModel.findById(req.params.id)
-        res.send(blog)
+        res.render('Blogs/show',{blog: blog})
     } catch (error) {
         console.log(error);
         res.status(403).send('Cannot get')
@@ -29,7 +34,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try{
         const newBlog = await BlogModel.create(req.body)
-        res.send(newBlog)
+        res.redirect('/blog')
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot create')
@@ -53,7 +58,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const deletedBlog = await BlogModel.findByIdAndRemove(req.params.id)
         console.log(deletedBlog)
-        res.send('Blog Deleted')
+        res.redirect('/blog')
         } catch (error) {
             console.log(error);
             res.status(403).send('Cannot put')
