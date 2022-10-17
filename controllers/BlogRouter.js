@@ -40,17 +40,36 @@ router.post('/', async (req, res) => {
         res.status(403).send('Cannot create')
     }
 })
+// Render the Edit Form
+router.get('/:id/edit', async (req, res) => {
+    try {
+      const blog = await BlogModel.findById(req.params.id)
+      res.render('Blogs/EditBlog', {blog: blog})
+    } catch (error) {
+      console.log(error);
+      res.status(403).send("Cannot get");
+    }
+  })
 
 // PUT: Update By ID
-router.put('/:id', async (req, res)=> {
-   try {
-    const updatedBlog = await BlogModel.findByIdAndUpdate(req.params.id, req.body, {'returnDocument' :"after"})
-    res.send(updatedBlog)
-   } catch (error) {
-    console.log(error);
-        res.status(403).send('Cannot put')
-   }
-})
+router.put("/:id", async (req, res) => {
+    try {
+      if (req.body.sponsored === "on") {
+        req.body.sponsored = true;
+      } else {
+        req.body.sponsored = false;
+      }
+      const updatedBlog = await BlogModel.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { returnDocument: "after" }
+      );
+      res.redirect('/blog')
+    } catch (error) {
+      console.log(error);
+      res.status(403).send("Cannot put");
+    }
+  });
 
 
 // DELETE
@@ -58,7 +77,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const deletedBlog = await BlogModel.findByIdAndRemove(req.params.id)
         console.log(deletedBlog)
-        res.redirect('/blog')
+        res.redirect('/blog');
         } catch (error) {
             console.log(error);
             res.status(403).send('Cannot put')
