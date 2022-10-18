@@ -27,7 +27,7 @@ router.get("/",  async (req, res) => {
 // Create Blog Form
 router.get("/new", (req, res) => {
   try {
-    res.render("Blogs/CreateBlog");
+    res.render("Blogs/new");
   } catch (error) {
     console.log(error);
     res.status(403).send("Not found");
@@ -56,7 +56,7 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const blog = await BlogModel.findById(req.params.id);
-    res.render("Blogs/ShowBlog", { blog: blog });
+    res.render("Blogs/show", { blog: blog });
   } catch (error) {
     console.log(error);
     res.status(403).send("Cannot get");
