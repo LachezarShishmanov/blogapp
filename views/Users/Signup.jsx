@@ -11,7 +11,7 @@ class Signup extends React.Component {
         <Navbar />
         <h1>Create an new account</h1>
 
-        <form action='/users/signup' method='post'>
+        <form action='/user/signup' method='post'>
           <fieldset>
             <legend>Create an account</legend>
 
