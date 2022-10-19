@@ -5,6 +5,9 @@ class Signin extends React.Component {
   render() {
     return (
       <div>
+        <head>
+            <link rel="stylesheet" href="/css/app.css"/>
+            </head>
         <Navbar />
         <h1>Sign in Page</h1>
 

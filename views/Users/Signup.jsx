@@ -5,6 +5,9 @@ class Signup extends React.Component {
   render() {
     return (
       <div>
+        <head>
+            <link rel="stylesheet" href="/css/app.css"/>
+            </head>
         <Navbar />
         <h1>Create an new account</h1>
 
