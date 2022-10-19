@@ -15,11 +15,11 @@ router.get("/", async (req, res) => {
 });
 
 // Render a signup Form
-router.get('/Signup', (req, res) =>{
+router.get('/signup', (req, res) =>{
   res.render('Users/Signup')
 })
 
-router.post("/Signup", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     // check if user exist
     const userAlreadyExist = await UserModel.find({ email: req.body.email });
