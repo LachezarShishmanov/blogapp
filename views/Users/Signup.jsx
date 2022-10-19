@@ -30,7 +30,7 @@ class Signup extends React.Component {
 
         <div>
           <p>
-            Already have an Account? <a href="/Users/Signin">Signin</a>{" "}
+            Already have an Account? <a href="/user/signin">Signin</a>{" "}
           </p>
         </div>
       </div>
