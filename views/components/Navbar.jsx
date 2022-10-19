@@ -6,10 +6,10 @@ class NavBar extends React.Component{
         return(
             <nav style={styles.container}>
                <a href='/'>Home</a>
-               <a href='/blog'>Blogs</a>
-               <a href='/blog/new'>Create New Blog</a>
-               <a href='/user/signup'>Signin/up</a>
-               <a href='/user/signout'>Signout</a>
+               <a href='/Blogs'>Blogs</a>
+               <a href='/Blogs/new'>Create New Blog</a>
+               <a href='/Users/Signup'>Signin/up</a>
+               <a href='/Users/Signout'>Signout</a>
             </nav>
         )
     }

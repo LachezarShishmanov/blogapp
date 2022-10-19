@@ -8,7 +8,7 @@ class Signup extends React.Component {
         <Navbar />
         <h1>Create an new account</h1>
 
-        <form action='/user/signup' method='post'>
+        <form action='/Users/Signup' method='post'>
           <fieldset>
             <legend>Create an account</legend>
 
@@ -30,7 +30,7 @@ class Signup extends React.Component {
 
         <div>
           <p>
-            Already have an Account? <a href="/user/signin">Signin</a>{" "}
+            Already have an Account? <a href="/Users/Signin">Signin</a>{" "}
           </p>
         </div>
       </div>

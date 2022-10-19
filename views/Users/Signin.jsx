@@ -8,7 +8,7 @@ class Signin extends React.Component {
         <Navbar />
         <h1>Sign in Page</h1>
 
-        <form action='/user/signin' method="post">
+        <form action='/Users/Signin' method="post">
           <fieldset>
             <legend>Signin to your account</legend>
 
