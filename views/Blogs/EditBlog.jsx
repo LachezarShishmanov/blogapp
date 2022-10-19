@@ -6,6 +6,9 @@ class EditBlog extends React.Component {
     const { blog } = this.props;
     return (
       <div>
+        <head>
+            <link rel="stylesheet" href="/css/app.css"/>
+            </head>
         <h1>Edit Blog</h1>
 
         <form action={`/blog/${blog._id}?_method=put`} method='post'>

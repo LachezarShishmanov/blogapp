@@ -31,4 +31,20 @@ class Blogs extends React.Component {
         )    
 }
 }
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  wrapper: {
+    padding: "20px",
+    margin: "10px",
+    width: "300px",
+    border: "solid",
+    borderWidth: "2px",
+    borderColor: "black",
+  },
+};
 module.exports = Blogs
