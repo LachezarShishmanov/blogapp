@@ -15,11 +15,11 @@ router.get("/", async (req, res) => {
 });
 
 // Render a signup Form
-router.get('/signup', (req, res) =>{
+router.get('/Signup', (req, res) =>{
   res.render('Users/Signup')
 })
 
-router.post("/signup", async (req, res) => {
+router.post("/Signup", async (req, res) => {
   try {
     // check if user exist
     const userAlreadyExist = await UserModel.find({ email: req.body.email });
@@ -34,7 +34,7 @@ router.post("/signup", async (req, res) => {
     // re-assign the password to the new hash
     req.body.password = await bcrypt.hash(req.body.password, SALT)
     const user = await UserModel.create(req.body);
-    res.redirect('/user/signin');
+    res.redirect('/Users/Signin');
   } catch (error) {
     console.log(error);
     res.status(403).send("Cannot POST");
@@ -42,12 +42,12 @@ router.post("/signup", async (req, res) => {
 });
 
 // Render the Signin Form
-router.get('/signin', (req, res) => {
+router.get('/Signin', (req, res) => {
   res.render('Users/Signin')
 })
 
 // Signin an user
-router.post('/signin', async (req, res) =>{
+router.post('/Signin', async (req, res) =>{
   try {
     //find user by email
     const user = await UserModel.findOne({email: req.body.email})
@@ -67,7 +67,7 @@ router.post('/signin', async (req, res) =>{
 })
 
 // Signout User and destroy session
-router.get('/signout', (req, res) => {
+router.get('/Signout', (req, res) => {
   try {
     req.session.destroy()
     res.redirect('/')
