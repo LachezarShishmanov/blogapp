@@ -13,7 +13,7 @@ class HomePage extends React.Component {
             <NavBar/>
 
             <h1>Welcome to my Blog App</h1>
-             <img src='../../public/bg.png' width="300px" height="300px"/> 
+             <img src='bg.png' width="300px" height="300px"/> 
         </div>)
     }
 }
