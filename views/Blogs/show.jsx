@@ -7,7 +7,7 @@ class Show extends React.Component {
         return(
             <div>
                  <head>
-            <link rel="stylesheet" href="/CSS/app.css"/>
+            <link rel="stylesheet" href="/css/app.css"/>
             </head>
                 <Navbar />
                 <h1>{blog.title}</h1>
