@@ -13,7 +13,7 @@ class New extends React.Component {
 
                 <h1>Create New Blog</h1>
 
-                <form action ='/blog' method='POST'>
+                <form action ='/blogs' method='POST'>
                     Title: <input type="text" name="title" /> 
                     <br/>
                     Body: <input type="text" name="body" /> 
